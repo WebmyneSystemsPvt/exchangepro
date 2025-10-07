@@ -1,0 +1,130 @@
+.btn-primary {
+    background: #bf4904;
+    border:none;
+}
+
+.btn-danger {
+    background: #f5ce3b;
+    border: none;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background: #f5ce3b;
+    color: #ffffff;;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #bf4904;
+    color: #ffffff;
+}
+
+.sidebar .nav .nav-item.active>.nav-link i,
+.sidebar .nav .nav-item.active>.nav-link .menu-title,
+.sidebar .nav .nav-item.active>.nav-link .menu-arrow {
+    color:#f2ab27;
+}
+
+.sidebar .nav .nav-item>.nav-link i,
+.sidebar .nav .nav-item>.nav-link .menu-title,
+.sidebar .nav .nav-item>.nav-link .menu-arrow {
+    color: #f2ab27;
+    font-weight: bold;
+}
+
+
+.sidebar .nav .nav-item .nav-link i.menu-icon {
+    color: #f2ab27;
+}
+
+/*custom checkbox toggle css*/
+.checkbox-toggle {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.checkbox-toggle + label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;  /* Adjusted width */
+    height: 25px; /* Adjusted height */
+    background: grey;
+    display: block;
+    border-radius: 50px;
+    position: relative;
+}
+
+.checkbox-toggle + label:after {
+    content: '';
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 20px;  /* Adjusted size */
+    height: 20px; /* Adjusted size */
+    background: #fff;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.checkbox-toggle:checked + label {
+    background: #f2ab27;
+}
+
+.checkbox-toggle:checked + label:after {
+    left: calc(100% - 2.5px);
+    transform: translateX(-100%);
+}
+
+.checkbox-toggle + label:active:after {
+    width: 25px; /* Adjusted size */
+}
+
+/*loader css*/
+/* Center the loader */
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 6px solid #f2ab27;
+    animation: spin 1.5s linear infinite;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Blur effect */
+.blur {
+    filter: blur(2px); /* Adjust the blur amount as needed */
+    pointer-events: none; /* Prevent clicking on elements behind the blur */
+}
+
+/* Loading text */
+.loading-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #666;
+}
+
+.preview-image {
+    max-width: 100px; /* Adjust as needed */
+    max-height: 100px; /* Adjust as needed */
+    margin-right: 10px; /* Spacing between images */
+}
+
+ #nprogress .bar {
+     background: #f2ab27 !important; /* Change to your desired color */
+ }

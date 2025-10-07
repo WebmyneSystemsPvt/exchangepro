@@ -1,0 +1,2653 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Borrowss API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/V1/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register a new user",
+                "description": "Create a new user with name, email, password, and role",
+                "operationId": "f38b0c17d4b099fb2f02661a26d7cbc7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Name of the user",
+                                        "type": "string",
+                                        "example": "manoj"
+                                    },
+                                    "email": {
+                                        "description": "Email address of the user",
+                                        "type": "string",
+                                        "example": "mk123@gmail.com"
+                                    },
+                                    "password": {
+                                        "description": "Password of the user",
+                                        "type": "string",
+                                        "example": "manoj@123"
+                                    },
+                                    "role": {
+                                        "description": "Role of the user",
+                                        "type": "string",
+                                        "example": "borrower"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User registered successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "manoj"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "mk123@gmail.com"
+                                                },
+                                                "avatar": {
+                                                    "type": "string",
+                                                    "example": "http://192.168.1.149:8002/storage/avatar/avatar.jpg"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "28-06-2024"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "28-06-2024"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 78
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User Created Successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/V1/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login a user",
+                "description": "Login a user with email and password",
+                "operationId": "26f8644dfb52f4e8f5597b58fef5db05",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "Email address of the user",
+                                        "type": "string",
+                                        "example": "admin@example.com"
+                                    },
+                                    "password": {
+                                        "description": "Password of the user",
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "properties": {
+                                                "access_token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "bearer"
+                                                },
+                                                "expires_in": {
+                                                    "type": "integer",
+                                                    "example": 3600
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 66
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Admin User"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "admin@example.com"
+                                                        },
+                                                        "email_verified_at": {
+                                                            "type": "string",
+                                                            "example": null,
+                                                            "nullable": true
+                                                        },
+                                                        "status": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "stages": {
+                                                            "type": "integer",
+                                                            "example": 0
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "format": "date",
+                                                            "example": "27-06-2024"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "format": "date",
+                                                            "example": "27-06-2024"
+                                                        },
+                                                        "deleted_at": {
+                                                            "type": "string",
+                                                            "example": null,
+                                                            "nullable": true
+                                                        },
+                                                        "role_id": {
+                                                            "type": "integer",
+                                                            "example": 2
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Login Successful"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid email or password"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/V1/get-profile-details": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get user profile details",
+                "description": "Returns the profile details of the authenticated user.",
+                "operationId": "getProfileDetails",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 9
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "borrower"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "borrowers@borrowers.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": null
+                                                },
+                                                "status": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "stages": {
+                                                    "type": "integer",
+                                                    "example": 0
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string",
+                                                    "example": null
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "04-07-2024"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "04-07-2024"
+                                                },
+                                                "roles": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "borrower"
+                                                    }
+                                                },
+                                                "role_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "profile_details": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 4
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 9
+                                                        },
+                                                        "city": {
+                                                            "type": "string",
+                                                            "example": "abc"
+                                                        },
+                                                        "address": {
+                                                            "type": "string",
+                                                            "example": "asdasd"
+                                                        },
+                                                        "pincode": {
+                                                            "type": "string",
+                                                            "example": "654987"
+                                                        },
+                                                        "location": {
+                                                            "type": "string",
+                                                            "example": "Ahmedabad"
+                                                        },
+                                                        "phone_number": {
+                                                            "type": "string",
+                                                            "example": "2132132"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2024-07-04T05:42:48.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2024-07-04T06:15:50.000000Z"
+                                                        },
+                                                        "deleted_at": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User details retrieved successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/update-profile-details": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Update user profile details",
+                "description": "Updates the profile details of the authenticated user.",
+                "operationId": "updateProfileDetails",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "city",
+                                    "address",
+                                    "pincode",
+                                    "location",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "borrower"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "borrowers@borrowers.com"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "example": "abc"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "asdasd"
+                                    },
+                                    "pincode": {
+                                        "type": "string",
+                                        "example": "654987"
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "Ahmedabad"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "example": "8866558844"
+                                    },
+                                    "avatar": {
+                                        "type": "file",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 9
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "borrower"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "borrowers@borrowers.com"
+                                                },
+                                                "avatar": {
+                                                    "type": "string",
+                                                    "example": "http://192.168.1.149:8002/storage/avatar/anxXVKfWppomo6z6oSa1DMWczKRKyeCqAwACGh23.png"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": null
+                                                },
+                                                "status": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "stages": {
+                                                    "type": "integer",
+                                                    "example": 0
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string",
+                                                    "example": null
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "04-07-2024"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "04-07-2024"
+                                                },
+                                                "roles": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "borrower"
+                                                    }
+                                                },
+                                                "profile_details": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 4
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 9
+                                                        },
+                                                        "city": {
+                                                            "type": "string",
+                                                            "example": "abc"
+                                                        },
+                                                        "address": {
+                                                            "type": "string",
+                                                            "example": "asdasd"
+                                                        },
+                                                        "pincode": {
+                                                            "type": "string",
+                                                            "example": "654987"
+                                                        },
+                                                        "location": {
+                                                            "type": "string",
+                                                            "example": "Ahmedabad"
+                                                        },
+                                                        "phone_number": {
+                                                            "type": "string",
+                                                            "example": "8866558844"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2024-07-04T05:42:48.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2024-07-04T06:25:29.000000Z"
+                                                        },
+                                                        "deleted_at": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User updated successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/group-list": {
+            "get": {
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Get list of groups",
+                "operationId": "a639a0256008a70b12441aa372279b04",
+                "responses": {
+                    "200": {
+                        "description": "Group List",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "asdas"
+                                                    },
+                                                    "documents": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "group_document": {
+                                                                    "type": "string",
+                                                                    "example": "http://192.168.1.149:8002/storage/group_documents/4eJdPsHvcCNjdMiter7ecXGlysfFqPbmcoA19yWq.png"
+                                                                },
+                                                                "group_id": {
+                                                                    "type": "integer",
+                                                                    "example": 2
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Group List."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/create-group": {
+            "post": {
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Create a new group",
+                "operationId": "55e9e7083110dead52a7412b36eee1d5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Name of the group",
+                                        "type": "string"
+                                    },
+                                    "group_id": {
+                                        "description": "ID of an existing group if updating",
+                                        "type": "integer"
+                                    },
+                                    "group_document[]": {
+                                        "type": "array",
+                                        "items": {
+                                            "description": "Group document(s)",
+                                            "type": "file",
+                                            "format": "file"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Group saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "abc"
+                                                },
+                                                "created_by": {
+                                                    "type": "integer",
+                                                    "example": 8
+                                                },
+                                                "status": {
+                                                    "type": "integer",
+                                                    "example": 0
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string",
+                                                    "example": null
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "09-07-2024"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "09-07-2024"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Group saved successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "errors": {
+                                            "type": "object",
+                                            "example": {
+                                                "name": [
+                                                    "The name field is required."
+                                                ],
+                                                "group_id": [
+                                                    "The group_id field is required."
+                                                ],
+                                                "group_document": [
+                                                    "The group_document field is required."
+                                                ]
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Form Validation Error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/item-storage": {
+            "post": {
+                "tags": [
+                    "Item Storages"
+                ],
+                "summary": "Create a new item storage",
+                "operationId": "3e562064dc128bc4e2521d326f842fa7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "listing_type": {
+                                        "type": "string",
+                                        "example": "newwww"
+                                    },
+                                    "categories_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "sub_categories_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "New York"
+                                    },
+                                    "map_pin": {
+                                        "type": "string",
+                                        "example": "40.7128,-74.0060"
+                                    },
+                                    "exception_details": {
+                                        "type": "string",
+                                        "example": "Some details about exceptions"
+                                    },
+                                    "rate": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 100
+                                    },
+                                    "rented_max_allow_days": {
+                                        "type": "integer",
+                                        "example": 30
+                                    },
+                                    "blocked_days": {
+                                        "type": "string",
+                                        "example": "08/04/2024,08/22/2024,08/14/2024"
+                                    },
+                                    "item_id": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "storage_photos": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "file"
+                                        }
+                                    },
+                                    "terms_conditions": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "Term 1"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Description for term 1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "facility_offers": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "Offer 1"
+                                                },
+                                                "photo": {
+                                                    "type": "file",
+                                                    "format": "binary"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Description for offer 1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "default_storage_photo": {
+                                        "type": "file"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "asdsadasdasdasdasdasdas"
+                                    },
+                                    "country": {
+                                        "type": "string",
+                                        "example": "India"
+                                    },
+                                    "state": {
+                                        "type": "string",
+                                        "example": "GOA"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "example": "Goa"
+                                    },
+                                    "pincode": {
+                                        "type": "string",
+                                        "example": "321654"
+                                    },
+                                    "landmark": {
+                                        "type": "string",
+                                        "example": "Beach"
+                                    },
+                                    "latitude": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 20.11234
+                                    },
+                                    "longitude": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 87.99899787
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": "abc"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Item Storage Created Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "properties": {
+                                                "listing_type": {
+                                                    "type": "string",
+                                                    "example": "newwww"
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "categories_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "sub_categories_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "asdsadasdasdasdasdasdas"
+                                                },
+                                                "location": {
+                                                    "type": "string",
+                                                    "example": "New York"
+                                                },
+                                                "exception_details": {
+                                                    "type": "string",
+                                                    "example": "Some details about exceptions"
+                                                },
+                                                "rate": {
+                                                    "type": "string",
+                                                    "example": "100"
+                                                },
+                                                "rented_max_allow_days": {
+                                                    "type": "string",
+                                                    "example": "30"
+                                                },
+                                                "country": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "state": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "pincode": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "landmark": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "latitude": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "longitude": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "05-08-2024"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "05-08-2024"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 91
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Item Storage Created Successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/V1/get-item-storage": {
+            "post": {
+                "tags": [
+                    "Item Storages"
+                ],
+                "summary": "Filter item storages",
+                "operationId": "4e18173aa572c10182697b0158bd24d3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "categories_id": {
+                                        "description": "Category ID",
+                                        "type": "integer"
+                                    },
+                                    "sub_categories_id": {
+                                        "description": "Subcategory ID",
+                                        "type": "integer"
+                                    },
+                                    "location": {
+                                        "description": "Location",
+                                        "type": "string"
+                                    },
+                                    "date_from": {
+                                        "description": "Start date (YYYY-MM-DD)",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "date_to": {
+                                        "description": "End date (YYYY-MM-DD)",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "price_min": {
+                                        "description": "Minimum price",
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "price_max": {
+                                        "description": "Maximum price",
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "id": {
+                                        "description": "Item storage ID",
+                                        "type": "number",
+                                        "format": "integer"
+                                    },
+                                    "limit": {
+                                        "description": "Limit number",
+                                        "type": "number",
+                                        "format": "integer"
+                                    },
+                                    "page": {
+                                        "description": "Page number",
+                                        "type": "number",
+                                        "format": "integer"
+                                    },
+                                    "listing_type": {
+                                        "description": "Listing type (e.g., Sale, Rent)",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "listing_type": {
+                                                        "type": "string",
+                                                        "example": "Sale"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "integer",
+                                                        "example": 8
+                                                    },
+                                                    "categories_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "sub_categories_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "location": {
+                                                        "type": "string",
+                                                        "example": "New York"
+                                                    },
+                                                    "map_pin": {
+                                                        "type": "string",
+                                                        "example": "40.7128,-74.0060"
+                                                    },
+                                                    "exception_details": {
+                                                        "type": "string",
+                                                        "example": "Some details about exceptions"
+                                                    },
+                                                    "rate": {
+                                                        "type": "string",
+                                                        "example": "100"
+                                                    },
+                                                    "rented_max_allow_days": {
+                                                        "type": "integer",
+                                                        "example": 30
+                                                    },
+                                                    "blocked_days": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "max_allow_day_flag": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "03-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "03-07-2024"
+                                                    },
+                                                    "category": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "example": "Electronics"
+                                                            },
+                                                            "status": {
+                                                                "type": "integer",
+                                                                "example": 0
+                                                            },
+                                                            "deleted_at": {
+                                                                "type": "string",
+                                                                "example": null
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "sub_category": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "categories_id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "example": "TV"
+                                                            },
+                                                            "status": {
+                                                                "type": "integer",
+                                                                "example": 0
+                                                            },
+                                                            "deleted_at": {
+                                                                "type": "string",
+                                                                "example": null
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "items": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "item_name": {
+                                                                    "type": "string",
+                                                                    "example": "keyboard"
+                                                                },
+                                                                "category_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "sub_category_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "item_description": {
+                                                                    "type": "string",
+                                                                    "example": "keyboard"
+                                                                },
+                                                                "item_photo": {
+                                                                    "type": "string",
+                                                                    "example": "http://192.168.1.149:8002/storage/Item/1719927350.png"
+                                                                },
+                                                                "item_weight": {
+                                                                    "type": "string",
+                                                                    "example": "30.00"
+                                                                },
+                                                                "item_price": {
+                                                                    "type": "string",
+                                                                    "example": "900.00"
+                                                                },
+                                                                "item_condition": {
+                                                                    "type": "string",
+                                                                    "example": "old"
+                                                                },
+                                                                "item_status": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "date_from": {
+                                                                    "type": "string",
+                                                                    "example": "1970-01-01"
+                                                                },
+                                                                "date_to": {
+                                                                    "type": "string",
+                                                                    "example": "1970-01-01"
+                                                                },
+                                                                "deleted_at": {
+                                                                    "type": "string",
+                                                                    "example": null
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string",
+                                                                    "example": "02-07-2024"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string",
+                                                                    "example": "02-07-2024"
+                                                                },
+                                                                "pivot": {
+                                                                    "properties": {
+                                                                        "item_storage_id": {
+                                                                            "type": "integer",
+                                                                            "example": 3
+                                                                        },
+                                                                        "item_id": {
+                                                                            "type": "integer",
+                                                                            "example": 1
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": null
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "responseData": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid request data"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "responseData": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Unauthorized access"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "responseData": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Internal server error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/seller-item-storage": {
+            "post": {
+                "tags": [
+                    "Seller Item Storages List"
+                ],
+                "summary": "Filter Seller item storages List",
+                "operationId": "cf64c6dba40cb117d504d9fd2501bb13",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "categories_id": {
+                                        "description": "Category ID",
+                                        "type": "integer"
+                                    },
+                                    "sub_categories_id": {
+                                        "description": "Subcategory ID",
+                                        "type": "integer"
+                                    },
+                                    "location": {
+                                        "description": "Location",
+                                        "type": "string"
+                                    },
+                                    "date_from": {
+                                        "description": "Start date (YYYY-MM-DD)",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "date_to": {
+                                        "description": "End date (YYYY-MM-DD)",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "price_min": {
+                                        "description": "Minimum price",
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "price_max": {
+                                        "description": "Maximum price",
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "id": {
+                                        "description": "Item storage ID",
+                                        "type": "number",
+                                        "format": "integer"
+                                    },
+                                    "limit": {
+                                        "description": "Limit number",
+                                        "type": "number",
+                                        "format": "integer"
+                                    },
+                                    "page": {
+                                        "description": "Page number",
+                                        "type": "number",
+                                        "format": "integer"
+                                    },
+                                    "listing_type": {
+                                        "description": "Listing type (e.g., Sale, Rent)",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "listing_type": {
+                                                        "type": "string",
+                                                        "example": "Sale"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "integer",
+                                                        "example": 8
+                                                    },
+                                                    "categories_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "sub_categories_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "location": {
+                                                        "type": "string",
+                                                        "example": "New York"
+                                                    },
+                                                    "map_pin": {
+                                                        "type": "string",
+                                                        "example": "40.7128,-74.0060"
+                                                    },
+                                                    "exception_details": {
+                                                        "type": "string",
+                                                        "example": "Some details about exceptions"
+                                                    },
+                                                    "rate": {
+                                                        "type": "string",
+                                                        "example": "100"
+                                                    },
+                                                    "rented_max_allow_days": {
+                                                        "type": "integer",
+                                                        "example": 30
+                                                    },
+                                                    "blocked_days": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "max_allow_day_flag": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "03-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "03-07-2024"
+                                                    },
+                                                    "category": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "example": "Electronics"
+                                                            },
+                                                            "status": {
+                                                                "type": "integer",
+                                                                "example": 0
+                                                            },
+                                                            "deleted_at": {
+                                                                "type": "string",
+                                                                "example": null
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "sub_category": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "categories_id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "example": "TV"
+                                                            },
+                                                            "status": {
+                                                                "type": "integer",
+                                                                "example": 0
+                                                            },
+                                                            "deleted_at": {
+                                                                "type": "string",
+                                                                "example": null
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "02-07-2024"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "items": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "item_name": {
+                                                                    "type": "string",
+                                                                    "example": "keyboard"
+                                                                },
+                                                                "category_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "sub_category_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "item_description": {
+                                                                    "type": "string",
+                                                                    "example": "keyboard"
+                                                                },
+                                                                "item_photo": {
+                                                                    "type": "string",
+                                                                    "example": "http://192.168.1.149:8002/storage/Item/1719927350.png"
+                                                                },
+                                                                "item_weight": {
+                                                                    "type": "string",
+                                                                    "example": "30.00"
+                                                                },
+                                                                "item_price": {
+                                                                    "type": "string",
+                                                                    "example": "900.00"
+                                                                },
+                                                                "item_condition": {
+                                                                    "type": "string",
+                                                                    "example": "old"
+                                                                },
+                                                                "item_status": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "date_from": {
+                                                                    "type": "string",
+                                                                    "example": "1970-01-01"
+                                                                },
+                                                                "date_to": {
+                                                                    "type": "string",
+                                                                    "example": "1970-01-01"
+                                                                },
+                                                                "deleted_at": {
+                                                                    "type": "string",
+                                                                    "example": null
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string",
+                                                                    "example": "02-07-2024"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string",
+                                                                    "example": "02-07-2024"
+                                                                },
+                                                                "pivot": {
+                                                                    "properties": {
+                                                                        "item_storage_id": {
+                                                                            "type": "integer",
+                                                                            "example": 3
+                                                                        },
+                                                                        "item_id": {
+                                                                            "type": "integer",
+                                                                            "example": 1
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": null
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "responseData": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid request data"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "responseData": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Unauthorized access"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "responseData": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Internal server error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/give-rating": {
+            "post": {
+                "tags": [
+                    "Ratings"
+                ],
+                "summary": "Submit a rating for an item",
+                "description": "Allows users to submit a rating for an item.",
+                "operationId": "beb2414e4e6c09e260bf6590b36f3f0b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "item_storage_id": {
+                                        "type": "string",
+                                        "example": "43"
+                                    },
+                                    "rating": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "title1"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "storage not available at vadodara location."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Rating submitted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "properties": {
+                                                "item_storage_id": {
+                                                    "type": "string",
+                                                    "example": "43"
+                                                },
+                                                "seller_id": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "rating": {
+                                                    "type": "string",
+                                                    "example": "1"
+                                                },
+                                                "status": {
+                                                    "type": "integer",
+                                                    "example": 0
+                                                },
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "title1"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "storage not available at vadodara location."
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-08-09T07:06:22.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-08-09T07:06:22.000000Z"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 8
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rating submitted successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Form Validation Error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/categories": {
+            "get": {
+                "tags": [
+                    "Masters"
+                ],
+                "summary": "Get all categories with sub-categories",
+                "description": "Retrieve all categories along with their sub-categories",
+                "operationId": "a51f1358311485f2306fcecf54591c99",
+                "responses": {
+                    "200": {
+                        "description": "A list of categories with sub-categories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "cate1"
+                                                    },
+                                                    "status": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "02-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "02-07-2024"
+                                                    },
+                                                    "sub_categories": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "categories_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "name": {
+                                                                    "type": "string",
+                                                                    "example": "sub cate1"
+                                                                },
+                                                                "status": {
+                                                                    "type": "integer",
+                                                                    "example": 0
+                                                                },
+                                                                "deleted_at": {
+                                                                    "type": "string",
+                                                                    "example": null,
+                                                                    "nullable": true
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string",
+                                                                    "format": "date",
+                                                                    "example": "02-07-2024"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string",
+                                                                    "format": "date",
+                                                                    "example": "02-07-2024"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/V1/sub-categories": {
+            "get": {
+                "tags": [
+                    "Masters"
+                ],
+                "summary": "Get list of sub-categories",
+                "description": "Returns a list of sub-categories with their details.",
+                "operationId": "getSubCategories",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "categories_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "TV"
+                                                    },
+                                                    "status": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "02-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "02-07-2024"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sub Categories List"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/languages": {
+            "get": {
+                "tags": [
+                    "Masters"
+                ],
+                "summary": "Get all languages",
+                "description": "Retrieve all available languages",
+                "operationId": "93ebc890c58958a2a83df90389e86b52",
+                "responses": {
+                    "200": {
+                        "description": "A list of languages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "English"
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "02-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "02-07-2024"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/V1/banners": {
+            "get": {
+                "tags": [
+                    "Masters"
+                ],
+                "summary": "Retrieve list of banners",
+                "operationId": "82cbdbb0ac8fafab2338899d22cf1f38",
+                "responses": {
+                    "200": {
+                        "description": "A list with banners",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "banner1"
+                                                    },
+                                                    "photo": {
+                                                        "type": "string",
+                                                        "example": ""
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "dsfdsf"
+                                                    },
+                                                    "status": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2024-07-02T11:52:07.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2024-07-02T11:52:10.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/V1/items": {
+            "get": {
+                "tags": [
+                    "Masters"
+                ],
+                "summary": "Get a list of items",
+                "operationId": "49c8b6e7525792162720dd7a6a22dff1",
+                "parameters": [
+                    {
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "description": "API Key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "item_name": {
+                                                        "type": "string",
+                                                        "example": "keyboard"
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "sub_category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "item_description": {
+                                                        "type": "string",
+                                                        "example": "keyboard"
+                                                    },
+                                                    "item_photo": {
+                                                        "type": "string",
+                                                        "example": "1719927350.png"
+                                                    },
+                                                    "item_weight": {
+                                                        "type": "string",
+                                                        "example": "30.00"
+                                                    },
+                                                    "item_price": {
+                                                        "type": "string",
+                                                        "example": "900.00"
+                                                    },
+                                                    "item_condition": {
+                                                        "type": "string",
+                                                        "example": "old"
+                                                    },
+                                                    "item_status": {
+                                                        "type": "string",
+                                                        "example": "1"
+                                                    },
+                                                    "date_from": {
+                                                        "type": "string",
+                                                        "example": "1970-01-01"
+                                                    },
+                                                    "date_to": {
+                                                        "type": "string",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "02-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "02-07-2024"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Items List."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/V1/get-faq": {
+            "get": {
+                "tags": [
+                    "FAQs"
+                ],
+                "summary": "Get all FAQs",
+                "description": "Returns a list of all FAQs.",
+                "operationId": "getFAQs",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "question": {
+                                                        "type": "string",
+                                                        "example": "abc"
+                                                    },
+                                                    "answer": {
+                                                        "type": "string",
+                                                        "example": "yes"
+                                                    },
+                                                    "order": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "16-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "16-07-2024"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "FAQ List."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/V1/get-testimonials": {
+            "get": {
+                "tags": [
+                    "Testimonials"
+                ],
+                "summary": "Get list of testimonials",
+                "description": "Returns list of testimonials",
+                "operationId": "getTestimonials",
+                "parameters": [
+                    {
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "responseData": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "example": "asdasdasdas"
+                                                    },
+                                                    "user_position": {
+                                                        "type": "string",
+                                                        "example": "asd"
+                                                    },
+                                                    "user_company": {
+                                                        "type": "string",
+                                                        "example": "asdad"
+                                                    },
+                                                    "testimonial": {
+                                                        "type": "string",
+                                                        "example": "asdasdad"
+                                                    },
+                                                    "photo": {
+                                                        "type": "string",
+                                                        "example": "http://192.168.1.149:8002/storage/testimonial_photos/0wAdKTOgw5d2YXgs81UmoFKpiPlxsVSdFVJftS39.jpg"
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "16-07-2024"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "16-07-2024"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Testimonial List."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "API Endpoints of Authentication"
+        },
+        {
+            "name": "Masters",
+            "description": "API Endpoints of Masters"
+        },
+        {
+            "name": "Group",
+            "description": "Group"
+        },
+        {
+            "name": "Item Storages",
+            "description": "Item Storages"
+        },
+        {
+            "name": "Seller Item Storages List",
+            "description": "Seller Item Storages List"
+        },
+        {
+            "name": "Ratings",
+            "description": "Ratings"
+        },
+        {
+            "name": "FAQs",
+            "description": "FAQs"
+        },
+        {
+            "name": "Testimonials",
+            "description": "Testimonials"
+        }
+    ]
+}

@@ -1,0 +1,441 @@
+[
+    {
+        "title": "Application",
+        "path": "/master/application",
+        "type": "Terms"
+    },
+    {
+        "title": "Payment Terms",
+        "path": "/master/paymentTerms",
+        "type": "Terms"
+    },
+    {
+        "title": "Transporter Terms",
+        "path": "/master/transporterTerms",
+        "type": "Terms"
+    },    
+    {
+        "title": "Industry",
+        "path": "/master/industry",
+        "type": "Terms"
+    },
+    {
+        "title": "Delivery Terms",
+        "path": "/master/deliveryTerms",
+        "type": "Terms"
+    },
+    {
+        "title": "Freight Terms",
+        "path": "/master/masterFreight",
+        "type": "Terms"
+    },
+    {
+        "title": "Warranty",
+        "path": "/master/warrantyType",
+        "type": "Terms"
+    },
+    {
+        "title": "GST Terms",
+        "path": "/master/gstTerms",
+        "type": "Terms"
+    },
+    {
+        "title": "Sales Office",
+        "path": "/master/salesOffice",
+        "type": "Division"
+    },
+    {
+        "title": "Department",
+        "path": "/master/department",
+        "type": "Division"
+    },
+    {
+        "title": "Sub Department",
+        "path": "/master/subDept",
+        "type": "Division"
+    },
+    {
+        "title": "Region",
+        "path": "/master/region",
+        "type": "Division"
+    },
+    {
+        "title": "Branch",
+        "path": "/master/branch",
+        "type": "Division"
+    },
+    {
+        "title": "Plant",
+        "path": "/master/plant",
+        "type": "Division"
+    },
+    {
+        "title": "Currency",
+        "path": "/master/currency",
+        "type": "Others"
+    },
+    {
+        "title": "Discount",
+        "path": "/master/discount",
+        "type": "Others"
+    },
+    {
+        "title": "Drive Flow Employee",
+        "path": "/master/driveFlowEmp",
+        "type": "Others"
+    },
+    {
+        "title": "XML Info",
+        "path": "/master/XmlInfo",
+        "type": "Others"
+    },
+    {
+        "title": "XML Detail",
+        "path": "/master/xMLParameters",
+        "type": "Others"
+    },
+    {
+        "title": "HSN Code XML",
+        "path": "/master/HSNCodeXml",
+        "type": "Others"
+    },
+    {
+        "title": "Employee",
+        "path": "/master/employee",
+        "type": "Others"
+    },
+    {
+        "title": "Payment Term Binding",
+        "path": "/master/paymentTermBinding",
+        "type": "Others"
+    },
+    {
+        "title": "Country",
+        "path": "/master/country",
+        "type": "Extra"
+    },
+    {
+        "title": "State",
+        "path": "/master/state",
+        "type": "Extra"
+    },
+    {
+        "title": "District",
+        "path": "/master/district",
+        "type": "Extra"
+    },
+    {
+        "title": "City",
+        "path": "/master/city",
+        "type": "Extra"
+    },
+    {
+        "title": "Designation",
+        "path": "/master/designation",
+        "type": "Extra"
+    },
+    {
+        "title": "Status",
+        "path": "/master/status",
+        "type": "Others"
+    },
+    {
+        "title": "Amendment Type",
+        "path": "/master/amendmentMaster",
+        "type": "Extra"
+    },
+    {
+        "title": "Backup",
+        "path": "/master/backupType",
+        "type": "Extra"
+    },
+    {
+        "title": "Cost Debit To",
+        "path": "/master/costDebitTo",
+        "type": "Extra"
+    },
+    {
+        "title": "Document Type",
+        "path": "/master/documentType",
+        "type": "Extra"
+    },
+    {
+        "title": "Priority",
+        "path": "/master/priority",
+        "type": "Extra"
+    },
+    {
+        "title": "Rejection",
+        "path": "/master/rejection",
+        "type": "Extra"
+    },
+    {
+        "title": "Category",
+        "path": "/master/category",
+        "type": "Extra"
+    },
+    {
+        "title": "ShipmentMode",
+        "path": "/master/shipmentMode",
+        "type": "Extra"
+    },
+    {
+        "title": "Amendment Type Detail",
+        "path": "/master/amendmentTypeDetail",
+        "type": "Extra"
+    },
+    {
+        "title": "Priority Order Type",
+        "path": "/master/priorityOrderType",
+        "type": "Extra"
+    },
+    {
+        "title": "Tax Class",
+        "path": "/master/taxClass",
+        "type": "Extra"
+    },
+    {
+        "title": "Link",
+        "path": "/master/link",
+        "type": "Extra"
+    },
+    {
+        "title": "FOC Reason",
+        "path": "/master/focReason",
+        "type": "Extra"
+    },
+    {
+        "title": "Attachment Type",
+        "path": "/master/attachmentType",
+        "type": "Extra"
+    },
+    {
+        "title": "Sub Attachment Type",
+        "path": "/master/subAttachmentType",
+        "type": "Extra"
+    },
+    {
+        "title": "OAFailure",
+        "path": "/master/oaFailure",
+        "type": "Extra"
+    },
+    {
+        "title": "Complaint Administrator",
+        "path": "/master/complaintAdministrator",
+        "type": "Extra"
+    },
+    {
+        "title": "Container Number",
+        "path": "/master/containerNumber",
+        "type": "Extra"
+    },
+    {
+        "title": "Annexure",
+        "path": "/master/annexure",
+        "type": "Extra"
+    },
+    {
+        "title": "Cover Letter",
+        "path": "/master/coverLetter",
+        "type": "Extra"
+    },
+    {
+        "title": "Material Type",
+        "path": "/master/materialType",
+        "type": "Extra"
+    },
+    {
+        "title": "Configure Tag Content",
+        "path": "/master/configureTagContent",
+        "type": "Extra"
+    },
+    {
+        "title": "Nature Root Cause",
+        "path": "/master/natureRootCause",
+        "type": "Extra"
+    },
+    {
+        "title": "Code of Nature",
+        "path": "/master/codeofNature",
+        "type": "Extra"
+    },
+    {
+        "title": "Box Type",
+        "path": "/master/boxType",
+        "type": "Extra"
+    },
+    {
+        "title": "Complaint Document Type",
+        "path": "/master/complaintDocumentType",
+        "type": "Extra"
+    },
+    {
+        "title": "Configure Final Approval",
+        "path": "/master/configureFinalApproval",
+        "type": "Approval"
+    },
+    {
+        "title": "Approval Limit",
+        "path": "/master/approvalLimit",
+        "type": "Approval"
+    },
+    {
+        "title": "Approval PP",
+        "path": "/approval/PP"
+    },
+    {
+        "title": "Approval SD",
+        "path": "/approval/SD"
+    },
+    {
+        "title": "Disassembly Approval",
+        "path": "/DisassemblyApproval"
+    },
+    {
+        "title": "FOC Approval",
+        "path": "/FOCApproval"
+    },
+    {
+        "title": "Customer Approval",
+        "path": "/CustomerApproval"
+    },
+    {
+        "title": "Cops",
+        "path": "/cops"
+    },
+    {
+        "title": "Cops Transfer",
+        "path": "/cops/copsTransfer"
+    },
+    {
+        "title": "Cops Dashboard",
+        "path": "/cops/copsDashboard"
+    },
+    {
+        "title": "Flow Transfer",
+        "path": "/flow/flowTransfer"
+    },
+    {
+        "title": "Quotation",
+        "path": "/quotation"
+    },
+    {
+        "title": "Flow",
+        "path": "/flow"
+    },
+    {
+        "title": "Complaint",
+        "path": "/complaint"
+    },
+    {
+        "title": "Customer",
+        "path": "/customer"
+    },
+    {
+        "title": "Reports",
+        "path": "/reports"
+    },
+    {
+        "title": "Amendment",
+        "path": "/amendment"
+    },
+    {
+        "title": "Disassembly",
+        "path": "/disassembly"
+    },
+    {
+        "title": "FOC",
+        "path": "/foc"
+    },
+    {
+        "title": "Menu",
+        "path": "/menuRights"
+    },
+    {
+        "title": "Links Path",
+        "path": "/linksPath"
+    },
+    {
+        "title": "Profile",
+        "path": "/profile"
+    },
+    {
+        "title": "Email",
+        "path": "/email"
+    },
+    {
+        "title": "Announcement",
+        "path": "/master/announcement",
+        "type": "Others"
+    },
+    {
+        "title": "Complaint Code For Cause",
+        "path": "/master/complaintCodeForCause",
+        "type": "Others"
+    },
+    {
+        "title": "LR Endorsed",
+        "path": "/master/lrEndorsed",
+        "type": "Others"
+    },
+    {
+        "title": "SEW FOC Supply",
+        "path": "/master/sewFocSupply",
+        "type": "Others"
+    },
+    {
+        "title": "Unit Damage",
+        "path": "/master/unitDamage",
+        "type": "Others"
+    },
+    {
+        "title": "Closing Remark",
+        "path": "/master/closingRemark",
+        "type": "Others"
+    },
+    {
+        "title": "Configure Login Image",
+        "path": "/master/configureLoginImage",
+        "type": "Others"
+    },
+    {
+        "title": "Material Group",
+        "path": "/master/materialGroup",
+        "type": "Extra"
+    },
+    {
+        "title": "DIB Lauff",
+        "path": "/master/dibLauff",
+        "type": "Extra"
+    },
+    {
+        "title": "DIB Motor",
+        "path": "/master/dibMo",
+        "type": "Extra"
+    },
+    {
+        "title": "DIB Motor Data",
+        "path": "/master/dibMotorData",
+        "type": "Extra"
+    },
+    {
+        "title": "DIB Part",
+        "path": "/master/dibPart",
+        "type": "Extra"
+    },
+    {
+        "title": "DIB OR",
+        "path": "/master/dibOR",
+        "type": "Extra"
+    },
+    {
+        "title": "DIB R",
+        "path": "/master/dibR",
+        "type": "Extra"
+    },
+    {
+        "title": "Spare Part List",
+        "path": "/master/sparePartList",
+        "type": "Extra"
+    }
+]
